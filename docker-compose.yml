@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  portainer: # Setup: https://www.portainer.io/installation/
+    image: portainer/portainer
+    container_name: portainer.local
+    ports:
+      # - 8000:8000 # For Edge Agent
+      - 9000:9000
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /opt/portainer/data:/data
